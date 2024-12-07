@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #14101b;
+  --foreground: #ffffff;
+  --muted: #6c7281;
+  --muted-foreground: rgba(255, 255, 255, 0.7);
+  --border: rgba(255, 255, 255, 0.1);
+  --input: #1c1525;
+  --ring: rgba(255, 255, 255, 0.2);
+  --primary: #ffffff;
+  --primary-foreground: #000000;
+  --secondary: #1c1525;
+  --secondary-foreground: #ffffff;
+  --destructive: #ff4d4d;
+  --destructive-foreground: #ffffff;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .slider {
+    @apply relative flex w-full touch-none select-none items-center;
+  }
+
+  .slider-track {
+    @apply relative h-1.5 w-full grow overflow-hidden rounded-full bg-secondary;
+  }
+
+  .slider-range {
+    @apply absolute h-full bg-primary;
+  }
+
+  .slider-thumb {
+    @apply block h-4 w-4 rounded-full border border-primary bg-background ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+  }
+
+  .card {
+    @apply rounded-lg border bg-card text-card-foreground shadow-sm;
+  }
+
+  .input {
+    @apply flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-sm shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50;
+  }
+
+  .button {
+    @apply inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50;
+  }
+}
+
+/* Chart Styles */
+.recharts-wrapper {
+  @apply mx-auto;
+}
+
+.recharts-pie {
+  @apply stroke-none;
+}
+
+.recharts-line {
+  @apply !stroke-white;
+}
+
+.recharts-cartesian-grid line {
+  @apply !stroke-[#ffffff1a];
+}
+
+.recharts-cartesian-axis-line {
+  @apply !stroke-[#ffffff1a];
+}
+
+.recharts-cartesian-axis-tick-line {
+  @apply !stroke-[#ffffff1a];
+}
+
+.recharts-cartesian-axis-tick-value {
+  @apply !fill-gray-400;
+}
+
+.recharts-tooltip-wrapper {
+  @apply !bg-[#1c1525] !border !border-[#ffffff1a] !text-white !rounded-lg;
+}
+
+.recharts-default-tooltip {
+  @apply !bg-[#1c1525] !border !border-[#ffffff1a] !text-white !p-2 !rounded-lg;
+}
+
+.recharts-tooltip-label {
+  @apply !text-gray-400;
+}
+
+/* Alert Styles */
+.alert-destructive {
+  @apply bg-red-900/50 border-red-700;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-[#14101b];
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-[#ffffff1a] rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-[#ffffff40];
+}
